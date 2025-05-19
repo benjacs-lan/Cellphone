@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CELLPHONE | Iniciar Sesión</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-logo">
+            <h1>CELL<span>PHONE</span></h1>
+            <div class="pulse-effect"></div>
+        </div>
+        
+        <form id="loginForm" class="login-form">
+            <h2>Iniciar Sesión</h2>
+            
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+                <div class="input-line"></div>
+            </div>
+            
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Contraseña" required>
+                <div class="input-line"></div>
+            </div>
+            
+            <button type="submit" class="glow-button">Iniciar Sesión</button>
+            
+            <div class="form-options">
+                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                <a href="#" id="registerLink">Crear cuenta</a>
+            </div>
+        </form>
+    </div>
+    
+    <!-- Modal de Registro -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Crear Cuenta</h2>
+            
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="regName">Nombre completo</label>
+                    <input type="text" id="regName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regEmail">Correo electrónico</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regPassword">Contraseña</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirmar contraseña</label>
+                    <input type="password" id="regConfirmPassword" required>
+                </div>
+                
+                <button type="submit" class="glow-button">Crear Cuenta</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/validation.js"></script>
+</body>
+</html>

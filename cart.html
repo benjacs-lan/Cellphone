@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CELLPHONE | Carrito de Compras</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>CELL<span>PULSE</span></h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalog.html">Productos</a></li>
+                <li><a href="support.html">Soporte</a></li>
+                <li><a href="index.html#about">Nosotros</a></li>
+            </ul>
+        </nav>
+        <div class="nav-buttons">
+            <a href="cart.html" class="cart-btn active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span id="cartCount">0</span>
+            </a>
+        </div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </header>
+
+    <section class="cart-section">
+        <h1>Tu Carrito de Compras</h1>
+        
+        <div class="cart-container">
+            <div class="cart-items">
+                <div id="cartItemsList">
+                    <!-- Cart items will be dynamically added here -->
+                    <div class="empty-cart-message">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <p>Tu carrito está vacío</p>
+                        <a href="catalog.html" class="glow-button">Empezar a Comprar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cart-summary">
+                <h2>Resumen del Pedido</h2>
+                <div class="summary-item">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Envío</span>
+                    <span id="shipping">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span>Impuestos</span>
+                    <span id="tax">$0.00</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-item total">
+                    <span>Total</span>
+                    <span id="total">$0.00</span>
+                </div>
+                
+                <div class="promo-code">
+                    <input type="text" placeholder="Código Promocional">
+                    <button class="apply-btn">Aplicar</button>
+                </div>
+                
+                <button id="checkoutBtn" class="glow-button checkout-btn">Proceder al Pago</button>
+                <a href="catalog.html" class="continue-shopping">Continuar Comprando</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content checkout-modal">
+            <span class="close-modal">&times;</span>
+            <h2>Pago</h2>
+            
+            <div class="checkout-steps">
+                <div class="step active">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Envío</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Pago</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Revisar</div>
+                </div>
+            </div>
+            
+            <div class="checkout-form-container">
+                <!-- Shipping Form (Step 1) -->
+                <form id="shippingForm" class="checkout-form active">
+                    <h3>Información de Envío</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Nombre</label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Apellido</label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Dirección</label>
+                        <input type="text" id="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">Ciudad</label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="zipCode">Código Postal</label>
+                            <input type="text" id="zipCode" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">País</label>
+                        <select id="country" required>
+                            <option value="">Seleccionar País</option>
+                            <option value="us">Estados Unidos</option>
+                            <option value="ca">Canadá</option>
+                            <option value="mx">México</option>
+                            <option value="es">España</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="outline-button" id="cancelShipping">Cancelar</button>
+                        <button type="submit" class="glow-button">Continuar al Pago</button>
+                    </div>
+                </form>
+                
+                <!-- Payment Form (Step 2) -->
+                <form id="paymentForm" class="checkout-form">
+                    <h3>Método de Pago</h3>
+                    
+                    <div class="payment-methods">
+                        <label class="payment-method">
+                            <input type="radio" name="paymentMethod" value="creditCard" checked>
+                            <div class="payment-icon credit-card">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                    <line x1="1" y1="10" x2="23" y2="10"></line>
+                                </svg>
+                            </div>
+                            <span>Tarjeta de Crédito</span>
+                        </label>
+                        
+                        <label class="payment-method">
+                            <input type="radio" name="paymentMethod" value="paypal">
+                            <div class="payment-icon paypal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M7 11l5-7"></path>
+                                    <path d="M21 6v7a2 2 0 0 1-2 2h-9l-3 3"></path>
+                                    <path d="M3 6v7a2 2 0 0 0 2 2h9l3 3"></path>
+                                </svg>
+                            </div>
+                            <span>PayPal</span>
+                        </label>
+                    </div>
+                    
+                    <div id="creditCardForm">
+                        <div class="form-group">
+                            <label for="cardNumber">Número de Tarjeta</label>
+                            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="expiryDate">Fecha de Vencimiento</label>
+                                <input type="text" id="expiryDate" placeholder="MM/AA" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="cardName">Nombre en la Tarjeta</label>
+                            <input type="text" id="cardName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="outline-button" id="backToShipping">Volver</button>
+                        <button type="submit" class="glow-button">Continuar a Revisión</button>
+                    </div>
+                </form>
+                
+                <!-- Review Order (Step 3) -->
+                <div id="reviewOrder" class="checkout-form">
+                    <h3>Revisar tu Pedido</h3>
+                    
+                    <div class="review-section">
+                        <h4>Dirección de Envío</h4>
+                        <p id="reviewShippingAddress"></p>
+                    </div>
+                    
+                    <div class="review-section">
+                        <h4>Método de Pago</h4>
+                        <p id="reviewPaymentMethod"></p>
+                    </div>
+                    
+                    <div class="review-section">
+                        <h4>Resumen del Pedido</h4>
+                        <div id="reviewItems">
+                            <!-- Order items will be dynamically added here -->
+                        </div>
+                        
+                        <div class="review-summary">
+                            <div class="summary-item">
+                                <span>Subtotal</span>
+                                <span id="reviewSubtotal">$0.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Envío</span>
+                                <span id="reviewShipping">$0.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Impuestos</span>
+                                <span id="reviewTax">$0.00</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-item total">
+                                <span>Total</span>
+                                <span id="reviewTotal">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="outline-button" id="backToPayment">Volver</button>
+                        <button type="button" class="glow-button" id="placeOrderBtn">Realizar Pedido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Order Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content confirmation-modal">
+            <div class="confirmation-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h2>¡Pedido Confirmado!</h2>
+            <p>Tu pedido ha sido realizado con éxito.</p>
+            <p>Número de Pedido: <span id="orderNumber">CP-12345678</span></p>
+            <p>Se ha enviado un correo de confirmación a tu dirección de email.</p>
+            <button class="glow-button" id="backToShopBtn">Continuar Comprando</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>CELLPHONE</h3>
+                <p>Tu destino principal para tecnología de vanguardia y servicios expertos.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalog.html">Productos</a></li>
+                    <li><a href="support.html">Soporte</a></li>
+                    <li><a href="index.html#about">Nosotros</a></li>
+                    <li><a href="#privacy">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contáctanos</h3>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg> Calle Tecnología 123, Ciudad Digital</p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg> (555) 123-4567</p>
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg> info@cellphone.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Nuestra Ubicación</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215573036935!2d-73.98784492426862!3d40.75798597138558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5b1!8m2!3d40.7579747!4d-73.9855426!16zL20vMDdxZHI!5m1!1e1" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <p>Visita nuestra tienda principal en el corazón de la ciudad</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 CELLPHONE. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
