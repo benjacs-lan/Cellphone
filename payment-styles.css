@@ -1,0 +1,203 @@
+/* Payment Page Styles */
+.payment-section {
+  padding: 3rem 5%;
+}
+
+.payment-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.payment-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.payment-content {
+  display: flex;
+  gap: 2rem;
+}
+
+.payment-form-container {
+  flex: 2;
+}
+
+.payment-form {
+  background-color: var(--background-light);
+  border-radius: 10px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+.payment-form h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 5px var(--shadow);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.order-summary {
+  flex: 1;
+  background-color: var(--background-light);
+  border-radius: 10px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.order-summary h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.item-quantity {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.item-price {
+  font-weight: 500;
+}
+
+.order-totals {
+  margin-top: 2rem;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.total-row.final {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.total-divider {
+  height: 1px;
+  background-color: var(--border);
+  margin: 1rem 0;
+}
+
+.bank-details {
+  background-color: var(--background);
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+}
+
+@media (max-width: 992px) {
+  .payment-content {
+    flex-direction: column;
+  }
+
+  .order-summary {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-buttons button,
+  .form-buttons a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.payment-info {
+  background-color: var(--background);
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.payment-info p {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.pagos360-logo {
+  margin: 1.5rem auto;
+  max-width: 200px;
+}
+
+.pagos360-logo img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}

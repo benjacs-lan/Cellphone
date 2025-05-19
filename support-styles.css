@@ -1,0 +1,461 @@
+/* Estilos para la página de soporte */
+.support-hero {
+  text-align: center;
+  padding: 3rem 5%;
+  background-color: var(--background-light);
+  position: relative;
+}
+
+.support-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.support-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.support-hero p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contenedor principal */
+.support-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 5%;
+}
+
+/* Tabs de navegación */
+.support-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+}
+
+.tab-btn::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: var(--transition);
+}
+
+.tab-btn:hover {
+  color: var(--text);
+}
+
+.tab-btn.active {
+  color: var(--primary);
+}
+
+.tab-btn.active::after {
+  width: 100%;
+}
+
+/* Contenido de las tabs */
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Opciones de contacto */
+.contact-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.contact-card {
+  background-color: var(--background-light);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--shadow);
+}
+
+.contact-icon {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.contact-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.contact-card p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.contact-btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  border-radius: 5px;
+  transition: var(--transition);
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.contact-btn:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+/* Formulario de contacto */
+.contact-form-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form-wrapper h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.contact-form {
+  background-color: var(--background-light);
+  border-radius: 10px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 5px var(--shadow);
+}
+
+/* Preguntas frecuentes */
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background-color: var(--background-light);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.faq-question:hover {
+  background-color: var(--background-lighter);
+}
+
+.faq-question h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  padding-right: 1rem;
+}
+
+.faq-toggle {
+  color: var(--text-muted);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.faq-answer {
+  padding: 0 1.2rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 1.2rem 1.2rem;
+  max-height: 500px;
+}
+
+.faq-answer p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Chat Modal */
+.chat-modal {
+  max-width: 400px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: var(--background-lighter);
+  border-bottom: 1px solid var(--border);
+}
+
+.chat-header h3 {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 1.5rem;
+  max-width: 80%;
+}
+
+.message p {
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+}
+
+.message-time {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.message.system {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: 100%;
+}
+
+.message.system p {
+  background-color: var(--background-lighter);
+  color: var(--text-muted);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+}
+
+.message.incoming {
+  margin-right: auto;
+}
+
+.message.incoming p {
+  background-color: var(--background-lighter);
+  color: var(--text);
+}
+
+.message.outgoing {
+  margin-left: auto;
+}
+
+.message.outgoing p {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.chat-input {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 0.8rem;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 5px 0 0 5px;
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.chat-input input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.chat-input button {
+  padding: 0 1rem;
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 0 5px 5px 0;
+  color: var(--background);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.chat-input button:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* Estilos responsivos */
+@media (max-width: 992px) {
+  .contact-options {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contact-card {
+    flex: 0 0 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .support-hero h1 {
+    font-size: 2rem;
+  }
+
+  .support-tabs {
+    flex-direction: row;
+  }
+
+  .tab-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .contact-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .faq-question h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .support-hero {
+    padding: 2rem 5%;
+  }
+
+  .support-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .support-hero p {
+    font-size: 1rem;
+  }
+
+  .support-tabs {
+    margin-bottom: 1.5rem;
+  }
+
+  .tab-btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-form-wrapper h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-form {
+    padding: 1.2rem;
+  }
+
+  .chat-modal {
+    height: 400px;
+  }
+}
